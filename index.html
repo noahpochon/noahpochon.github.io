@@ -12,7 +12,10 @@
         <img id="pp" src="img.jpg" alt="Photo de Noah Pochon">
         <h1>Noah Pochon</h1>
         <p>Étudiant en <strong>BTS SIO option SLAM</strong></p>
-        <p>Actuellement en recherche active de stage</p>
+        <p>Recherche active de stage 🔍</p>
+        <button id="theme-toggle" class="theme-btn">
+    <span id="theme-icon">🌙</span>
+</button>
     </header>
 
     <main>
@@ -24,31 +27,26 @@
                     <p><strong>JavaScript</strong></p>
                     <p class="stars">★☆☆</p>
                 </article>
-
                 <article class="tech-box">
                     <img src="html.png" alt="HTML">
                     <p><strong>HTML / CSS</strong></p>
                     <p class="stars">★★☆</p>
                 </article>
-
                 <article class="tech-box">
                     <img src="java.png" alt="Java">
                     <p><strong>Java</strong></p>
                     <p class="stars">★★☆</p>
                 </article>
-
                 <article class="tech-box">
                     <img src="python.png" alt="Python">
                     <p><strong>Python</strong></p>
                     <p class="stars">★★☆</p>
                 </article>
-
                 <article class="tech-box">
                     <img src="php.png" alt="PHP">
                     <p><strong>PHP</strong></p>
                     <p class="stars">★★☆</p>
                 </article>
-
                 <article class="tech-box">
                     <img src="javafx.png" alt="JavaFX">
                     <p><strong>JavaFX</strong></p>
@@ -77,43 +75,84 @@
             <div class="exp-list">
                 <article>
                     <h3>Poma</h3>
-                    <p><em>Janv. 2024 - Févr. 2024 (2 mois)</em></p>
-                    <p><strong>Projecteur 3D :</strong> Mise en pratique des compétences pour répondre aux besoins industriels de Poma.</p>
+                    <p><em>Janv. 2024 - Févr. 2024</em></p>
+                    <p><strong>Projecteur 3D :</strong> Conception technique pour les besoins industriels.</p>
                 </article>
                 <article>
                     <h3>Atos</h3>
-                    <p><em>Stage de découverte (3ème)</em></p>
+                    <p><em>Stage de découverte</em></p>
+                    <p>Observation des métiers de l'informatique.</p>
                 </article>
             </div>
         </section>
 
-    
-        </section>
-
         <section id="card-projects" class="card">
+            <h2>Mes Projets</h2>
             <div class="projects">
-                <h2>Mes Projets</h2>
-                <p><strong>Serveur NAS</strong> :Création d'un serveur NAS sous débian</p>
-
-                <p><strong>RSS BOT   </strong>   :Développement d'un bot de flux automatisé.</p>
+                <article>
+                    <p><strong>Serveur NAS</strong> : Installation d'un serveur de stockage sous Debian </p>
+                </article>
+                <article>
+                    <p><strong>RSS BOT</strong> : Bot automatisé de gestion de flux RSS.</p>
+                </article>
             </div>
         </section>
 
         <section id="card-hobbies" class="card">
-            <div class="hobbies">
-                <h2>Mes Loisirs</h2>
-                <div class="hobby-list">
-                    <span>🎬 Cinéma</span>
-                    <span>🥾 Randonnée</span>
-                    <span>💻 Programmation</span>
-                </div>
+            <h2>Mes Loisirs</h2>
+            <div class="hobby-list">
+                <span>🎬 Cinéma</span>
+                <span>🥾 Randonnée</span>
+                <span>💻 Programmation</span>
             </div>
         </section>
-    </main>
 
+        <section id="card-social" class="card">
+            <h2>Mes réseaux</h2>
+            <div class="hobby-list">
+                <span><img src="liketind.png" alt=""><a href="https://www.linkedin.com/in/noah-pochon/">linkedin</a></span>
+                <span><img src="github.png" alt=""><a href="https://github.com/noahpochon">github</a></span>
+                
+            </div>
+        </section>
+
+
+       <section id="card-cv" class="card">
+    <div class="cv">
+        <a href="cv.pdf" download="CV_Noah_Pochon.pdf" class="btn-download">
+            Télécharger mon CV 📄
+        </a>
+    </div>
+</section>
     <footer>
-        <p>Noah Pochon  2026 </p>
+        <p>&copy; 2026 Noah Pochon - Tous droits réservés</p>
     </footer>
 
 </body>
 </html>
+
+<script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme');
+
+        // Charger le thème sauvegardé
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
