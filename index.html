@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Portfolio | Noah Pochon</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="e8ef386d-e405-4014-9544-eaad489e0c6c"></script>
 </head>
 <body>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
 
     <header id="card-intro" class="card">
         <img id="pp" src="img.jpg" alt="Photo de Noah Pochon">
@@ -14,8 +19,8 @@
         <p>Étudiant en <strong>BTS SIO option SLAM</strong></p>
         <p>Recherche active de stage 🔍</p>
         <button id="theme-toggle" class="theme-btn">
-    <span id="theme-icon">🌙</span>
-</button>
+            <span id="theme-icon">🌙</span>
+        </button>
     </header>
 
     <main>
@@ -76,12 +81,12 @@
                 <article>
                     <h3>Poma</h3>
                     <p><em>Janv. 2024 - Févr. 2024</em></p>
-                    <p><strong>Projecteur 3D :</strong> Conception technique pour les besoins industriels.</p>
+                    <p><strong>Projecteur 3D :</strong> Poma est leader mondial du transport par câble. Modélisation de gares de télésiège sur Siemens NX.</p>
                 </article>
                 <article>
                     <h3>Atos</h3>
                     <p><em>Stage de découverte</em></p>
-                    <p>Observation des métiers de l'informatique.</p>
+                    <p>Observation des métiers de l'informatique et des infrastructures.</p>
                 </article>
             </div>
         </section>
@@ -90,10 +95,10 @@
             <h2>Mes Projets</h2>
             <div class="projects">
                 <article>
-                    <p><strong>Serveur NAS</strong> : Installation d'un serveur de stockage sous Debian </p>
+                    <p><strong>Serveur NAS</strong> : Installation d'un serveur de stockage sous Debian.</p>
                 </article>
                 <article>
-                    <p><strong>RSS BOT</strong> : Bot automatisé de gestion de flux RSS.</p>
+                    <p><strong>RSS BOT</strong> : Bot Python automatisé utilisant feedparser et l'API Discord pour la veille technologique.</p>
                 </article>
             </div>
         </section>
@@ -110,46 +115,40 @@
         <section id="card-social" class="card">
             <h2>Mes réseaux</h2>
             <div class="hobby-list">
-                <span><img src="liketind.png" alt=""><a href="https://www.linkedin.com/in/noah-pochon/">linkedin</a></span>
-                <span><img src="github.png" alt=""><a href="https://github.com/noahpochon">github</a></span>
-                
+                <span><img src="liketind.png" alt=""><a href="https://www.linkedin.com/in/noah-pochon/">LinkedIn</a></span>
+                <span><img src="github.png" alt=""><a href="https://github.com/noahpochon">GitHub</a></span>
             </div>
         </section>
 
+        <section id="card-cv" class="card">
+            <div class="cv">
+                <a href="cv.pdf" 
+                   download="CV_Noah_Pochon.pdf" 
+                   class="btn-download"
+                   data-umami-event="Download CV">
+                    Télécharger mon CV 📄
+                </a>
+            </div>
+        </section>
+    </main>
 
-      <section id="card-cv" class="card">
-    <div class="cv">
-        <a href="cv.pdf" 
-           download="CV_Noah_Pochon.pdf" 
-           class="btn-download"
-           data-umami-event="Download CV">
-            Télécharger mon CV 📄
-        </a>
-    </div>
-</section>
-</section>
     <footer>
-        <a href="MentionsLegals.html"">Mentions Légales</a>
+        <a data-umami-event="MentionsLegals" href="MentionsLegals.html">Mentions Légales</a>
         <p>&copy; 2026 Noah Pochon - Tous droits réservés</p>
     </footer>
 
-</body>
-</html>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="e8ef386d-e405-4014-9544-eaad489e0c6c"></script>
-<script>
+    <script>
+        // --- Gestion du Thème ---
         const toggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
-        const currentTheme = localStorage.getItem('theme');
-
-        // Charger le thème sauvegardé
-        if (currentTheme === 'light') {
+        
+        if (localStorage.getItem('theme') === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
             themeIcon.textContent = '☀️';
         }
 
         toggleBtn.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
-            
             if (theme === 'light') {
                 document.documentElement.removeAttribute('data-theme');
                 themeIcon.textContent = '🌙';
@@ -160,5 +159,14 @@
                 localStorage.setItem('theme', 'light');
             }
         });
-    </script>
 
+        // --- Gestion de la Barre de Progression ---
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
