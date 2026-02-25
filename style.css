@@ -161,9 +161,18 @@ footer {
     margin-top: 50px;
     color: var(--text-muted);
     font-size: 0.85rem;
-    opacity: 0.6;
+    opacity: 0.8; /* Augmenté pour une meilleure lisibilité */
 }
 
+footer a {
+    color: #ffffff !important; /* Force la couleur noire */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
 /* --- Variables par défaut (Dark Mode) --- */
 :root {
     --bg: #0d1117;
