@@ -1,120 +1,179 @@
-/* Style Global */
+/* --- Base & Typographie --- */
 body {
-    background: #0b0f1a;
-    font-family: 'Segoe UI', sans-serif;
+    background-color: #0b0f1a;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
-    color: white;
+    padding: 40px 20px;
+    margin: 0;
+    line-height: 1.6;
 }
-#footer {
-    position: relative;
-    clear:both;
-    margin-top: -150px;
-    height: 150px
-}
-/* Cartes Glassmorphism */
-#Card-1, #Card-2, #Card-3, #Card-4, #Card-5, #Card-6 {
+
+/* --- Cartes Glassmorphism --- */
+.card {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 550px;
+    border-radius: 20px;
     padding: 30px;
     margin-bottom: 25px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
-    transition: 0.4s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-#Card-1:hover, #Card-2:hover, #Card-3:hover, #Card-4:hover, #Card-5:hover, #Card-6:hover {
-    border-color: #00d2ff;
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Photo de profil */
+h1, h2, h3 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* --- Header (Profil) --- */
 #pp {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 20px #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
     margin-bottom: 15px;
 }
 
-/* Technologies (Logos uniformes et alignés) */
+/* --- Compétences (Grille & Zoom) --- */
 .tech-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
 }
 
 .tech-box {
-    width: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 15px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.tech-box:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .tech-box img {
-    width: 75px; 
-    height: 75px;       /* Force la même taille pour tous les logos */
-    object-fit: contain; /* Empêche la déformation (important pour Java) */
-    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
-    transition: 0.3s;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
-.tech-box img:hover {
-    transform: scale(1.15);
-}
-
-/* Étoiles de niveau */
-.tech-box p:last-child {
-    color: #00d2ff;
-    font-size: 1.2em;
-    text-shadow: 0 0 8px #00d2ff;
+.stars {
+    color: #ffffff;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    opacity: 0.6;
     margin-top: 5px;
 }
 
-/* Parcours & Expériences (Bordure bleue supprimée ici) */
-#Monge, #Berges, #Poma, [id="Layer tech"] {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 15px;
-    margin: 12px 0;
-    border-radius: 12px;
-    border-left: none; /* Supprime le trait bleu à gauche */
+/* --- Listes : Parcours & Expériences --- */
+.timeline article, .exp-list article {
     text-align: left;
+    padding: 20px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border-left: 3px solid rgba(255, 255, 255, 0.1); /* Petite barre latérale discrète */
 }
 
-/* Liens et Réseaux */
-#github, #linkedin, #Email {
+.timeline h3, .exp-list h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+/* --- Mode Liste : Loisirs & Projets --- */
+.projects {
+    margin-bottom: 30px;
+}
+
+.hobby-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hobby-list span {
     display: flex;
     align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.hobby-list span:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 30px; /* Petit effet de glissement */
+}
+
+/* --- Réseaux (Alignement corrigé) --- */
+.links {
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 15px;
-    margin-top: 15px;
 }
 
-#github img, #linkedin img, #Email img {
-    width: 40px;
-}
-
-a {
+.links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 50px; /* Forme pilule */
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-a:hover {
-    color: #00d2ff;
-    text-shadow: 0 0 10px #00d2ff;
+.links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
 }
 
-/* Footer */
+.links img {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Footer --- */
 footer {
-    margin: 20px 0;
-    opacity: 0.5;
-    font-size: 0.8em;
+    margin-top: 20px;
+    padding: 20px;
+    opacity: 0.4;
+    font-size: 0.8rem;
 }
