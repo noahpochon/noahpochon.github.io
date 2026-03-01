@@ -3,32 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales - Noah Pochon</title>
+    <link rel="stylesheet" href="style.css"> <title>Mentions Légales - Noah Pochon</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; }
-        h2 { color: #34495e; margin-top: 30px; }
-        .back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #007bff; }
+        /* --- Style spécifique pour les Mentions Légales --- */
+        body {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+            line-height: 1.8;
+            padding: 0 20px;
+            background: var(--bg); /* Utilise la variable de ton index */
+            color: var(--text);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-top: 40px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        section.card {
+            margin-bottom: 20px;
+            padding: 25px;
+            /* La classe .card est déjà définie dans ton style.css principal */
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            color: var(--text-muted);
+        }
+
+        li { margin-bottom: 8px; }
+
+        .legal-footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--glass-border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
     </style>
 </head>
-<body>
+<body class="legal-page">
+
     <a href="index.html" class="back-link">← Retour au portfolio</a>
     
     <h1>Mentions Légales & Confidentialité 🛡️</h1>
 
-    <section>
+    <section class="card">
         <h2>1. Édition du site</h2>
         <p>Ce site est le portfolio personnel de <strong>Noah Pochon</strong>.</p>
-        <p>Contact : pochon.noah.38@gmail.com</p>
+        <p>Contact : <a href="mailto:pochon.noah.38@gmail.com" style="color: var(--accent); text-decoration: none;">pochon.noah.38@gmail.com</a></p>
     </section>
 
-    <section>
+    <section class="card">
         <h2>2. Hébergement</h2>
         <p>Le site est hébergé par <strong>GitHub Inc.</strong><br>
         Adresse : 88 Colin P. Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
     </section>
 
-    <section>
+    <section class="card">
         <h2>3. Respect de la vie privée</h2>
         <p>Ce site utilise <strong>Umami Analytics</strong> pour mesurer l'audience de manière totalement anonyme.</p>
         <ul>
@@ -38,10 +101,15 @@
         </ul>
     </section>
 
-    
-
-    <footer style="margin-top: 50px; font-size: 0.8em; color: #777; border-top: 1px dashed #ccc; padding-top: 20px;">
+    <footer class="legal-footer">
         Dernière mise à jour : 25 février 2026.
     </footer>
+
+    <script>
+        // On applique le thème sauvegardé au chargement
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
 </body>
 </html>
