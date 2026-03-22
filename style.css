@@ -214,3 +214,41 @@ footer {
     font-size: 0.85rem;
     text-align: center;
 }
+/* --- Style des liens Projets --- */
+.projects article div {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.projects article div:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: var(--accent);
+}
+
+.project-link {
+    color: var(--accent) !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    letter-spacing: 0.5px;
+    filter: brightness(1.2);
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 5px;
+}
